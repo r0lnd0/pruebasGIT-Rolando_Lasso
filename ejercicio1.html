@@ -1,0 +1,25 @@
+<script>
+let numeroDeElementos = 10;
+/*
+* Modificar numeroDeElementos por cualquier numero positivo.
+*/
+let n1 = 0; 
+let n2 = 1;
+let n3;
+const fib = (n) => {
+for (let i = 1; i <= n; i++) {
+    console.log(n1);
+    n3 = n1 + n2;
+    n1 = n2;
+    n2 = n3;
+  }
+}
+fib(numeroDeElementos);
+const bestFib = (n) => {
+  return new Array(n).fill("").reduce((acc, _ ,i) => {
+      acc.push((i <= 1) ? i : acc[i-2] + acc[i-1])
+      return acc
+  },[]) ;
+}
+console.log(bestFib(numeroDeElementos))
+</script>
