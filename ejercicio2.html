@@ -1,0 +1,33 @@
+<script>
+//bubblesort
+const onlyNumberSortArray = (rawArr) => {
+    let arr = clearNotNumberArray(rawArr);
+    for(let i = 0; i < arr.length; i++){
+      for(let j = 0; j < arr.length - i - 1; j++){
+        if(arr[j + 1] < arr[j]){
+          const tmp = arr[j]; 
+          arr[j] = arr[j+1]; 
+          arr[j+1] = tmp; 
+        }
+      }
+    };
+    return arr;
+}
+
+const clearNotNumberArray = (arr) => {
+    let final = [];
+    for (let i=0; i<arr.length; i++) {
+      if(typeof arr[i] === 'number')
+        final.push(arr[i]);
+    }
+    return final;
+}
+
+const onlyNumberSortArrayBest = (arr) => {
+    return arr.filter(v=> typeof v === 'number').sort((a, b) => {
+        return a - b;
+    });  
+}
+console.log(onlyNumberSortArray([85,90,-29,"z",["hola"],1,2,3,"4",0,"-20",-200]));
+console.log(onlyNumberSortArrayBest([85,90,-29,"z",["hola"],1,2,3,"4",0,"-20",-200]));
+</script>
